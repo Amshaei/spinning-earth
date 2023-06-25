@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ImageLoop from "./ImageLoop";
 
 function GlobeControl(props) {
@@ -13,7 +13,8 @@ function GlobeControl(props) {
     const [imageNames, setImageNames] = useState([]);
     const [fetchedImages, setFetchedImages] = useState([]);
     const [todayAlt, setTodayAlt] = useState("");
-    let today = "";
+
+    const todayRef = useRef("");
 
     const [rotationSpeed, setRotationSpeed] = useState(1000);
 
@@ -36,7 +37,7 @@ function GlobeControl(props) {
             }
         };
         fetchLatestImageDate();
-    }, []);
+    }, [key, urlDate]);
 
     useEffect(() => {
         if ((/\d{4}-\d{2}-\d{2}/).test(latestImageDate)) {
@@ -44,7 +45,7 @@ function GlobeControl(props) {
             let year = date.substring(0,4);
             let month = date.substring(4,6); 
             let day = date.substring(6,8);
-            today = `${year}-${month}-${day}`;
+            todayRef.current = `${year}-${month}-${day}`;
             setTodayAlt(`${year}/${month}/${day}/png/`);
 
 
@@ -52,7 +53,7 @@ function GlobeControl(props) {
             const fetchImageNames = async () => {
                 try{
                     const response = await fetch(
-                        `${urlImages}${today}?api_key=${key}`
+                        `${urlImages}${todayRef.current}?api_key=${key}`
                     )
                     if (response.ok) {
                         const imageInfo = await response.json();
@@ -68,22 +69,21 @@ function GlobeControl(props) {
             };
             fetchImageNames();
         }
-    }, [latestImageDate])
+    }, [key, urlImages, latestImageDate])
 
     useEffect(() => {
         setFetchedImages(imageNames.map((imageName, index) => {
             return `${urlArchive}${todayAlt}${imageName}.png?api_key=${key}`
         }))
         console.log(imageNames);
-    }, [latestImageDate, imageNames])
+    }, [key, todayAlt, urlArchive, latestImageDate, imageNames])
     
     
     
     return (
-        <div className="row flex justify">
+        <div className="GlobeComponent row flex justify">
             
-            <h1 style={{fontSize: 58, color: 'white'}}>{latestImageDate}</h1>
-            
+            <h1>{latestImageDate}</h1>
             <ImageLoop imageUrls={fetchedImages} speed={rotationSpeed}/>
             <div className="flex">
                 <button onClick={() => setRotationSpeed(rotationSpeed < 2000? rotationSpeed-100 : rotationSpeed)} style={{fontSize: 58}}>-</button>

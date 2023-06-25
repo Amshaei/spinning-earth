@@ -1,3 +1,35 @@
+:root {
+  --primary-color: #007bff;
+  --font-size-large: 1rem;
+}
+
+.GlobeComponent {
+  color: var(--primary-color);
+  font-size: var(--font-size-large);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.GlobeComponent h1 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.GlobeComponent .flex {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.GlobeComponent button {
+  font-size: 24px;
+  padding: 8px 16px;
+  margin: 0 8px;
+}
+
 @keyframes hoverAnimation {
   0% {
     transform: translateY(0);
@@ -9,17 +41,18 @@
     transform: translateY(0);
   }
 }
-
-
+x
 body {  
   background-color: #292929;
 }
 .container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 .earth {
-  position: relative;
+  width: 50%;
   -webkit-mask-image: radial-gradient(circle, black 50%, rgba(0, 0, 0, 0) 50%);
   mask-image: radial-gradient(circle, black 54%, rgba(0, 0, 0, 0) 55%);
   image-rendering: optimizeQuality;
