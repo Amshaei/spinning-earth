@@ -1,4 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
+  --background-color: #292929; 
   --primary-color: #007bff;
   --font-size-large: 1rem;
 }
@@ -43,7 +48,7 @@
 }
 x
 body {  
-  background-color: #292929;
+  background-color: var(--background-color);
 }
 .container {
   display: flex;
@@ -51,6 +56,20 @@ body {
   align-items: center;
   height: 100vh;
 }
+
+.ImageContainer{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+
+.EarthContainer{
+  display: flex;
+  justify-content: center;
+}
+
 .earth {
   width: 50%;
   -webkit-mask-image: radial-gradient(circle, black 50%, rgba(0, 0, 0, 0) 50%);

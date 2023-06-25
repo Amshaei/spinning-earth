@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import ImageLoop from "./ImageLoop";
 
-function GlobeControl(props) {
+function GlobeControl() {
 
     const key = process.env.REACT_APP_NASA_API_KEY;
     const urlDate = process.env.REACT_APP_NASA_API_URL_DATE;
@@ -15,8 +15,6 @@ function GlobeControl(props) {
     const [todayAlt, setTodayAlt] = useState("");
 
     const todayRef = useRef("");
-
-    const [rotationSpeed, setRotationSpeed] = useState(1000);
 
     useEffect(() => {
         // Find Date
@@ -84,11 +82,7 @@ function GlobeControl(props) {
         <div className="GlobeComponent row flex justify">
             
             <h1>{latestImageDate}</h1>
-            <ImageLoop imageUrls={fetchedImages} speed={rotationSpeed}/>
-            <div className="flex">
-                <button onClick={() => setRotationSpeed(rotationSpeed < 2000? rotationSpeed-100 : rotationSpeed)} style={{fontSize: 58}}>-</button>
-                <button onClick={() => setRotationSpeed(rotationSpeed > 100? rotationSpeed+100 : rotationSpeed)} style={{fontSize: 58}}>+</button>
-            </div>
+            <ImageLoop imageUrls={fetchedImages}/>
         </div>
     );
 }
