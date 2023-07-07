@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/spinning-earth/static/css/main.99b050ff.css",
+    "main.js": "/spinning-earth/static/js/main.f3df151f.js",
+    "static/js/787.fb69ca2d.chunk.js": "/spinning-earth/static/js/787.fb69ca2d.chunk.js",
+    "index.html": "/spinning-earth/index.html",
+    "main.99b050ff.css.map": "/spinning-earth/static/css/main.99b050ff.css.map",
+    "main.f3df151f.js.map": "/spinning-earth/static/js/main.f3df151f.js.map",
+    "787.fb69ca2d.chunk.js.map": "/spinning-earth/static/js/787.fb69ca2d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.99b050ff.css",
+    "static/js/main.f3df151f.js"
+  ]
+}
