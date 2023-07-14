@@ -30,6 +30,8 @@
 }
 
 .GlobeComponent button {
+  display: flex;
+  flex-direction: column;
   font-size: 24px;
   padding: 8px 16px;
   margin: 0 8px;
@@ -55,6 +57,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin: 3rem;
 }
 
 .ImageContainer{

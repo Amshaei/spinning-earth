@@ -25,13 +25,13 @@ function ImageLoop({imageUrls}) {
                 <img className="earth" src={imageUrls[currentImageIndex]}
                 alt={`Earth from angle #${currentImageIndex}`}
                 />
+                <Slider dots={true} vertical={false} reverse={true} min={0} max={2000} step={100} value={speed} onChange={newSpeed => setSpeed(newSpeed)}/>
             </div>
             <button onClick={() => setPlaying(!playing) && setSpeed(speed > 100? speed - 100 : speed)} style={{fontSize: 58}}>
                 {playing ? "| |" : ">"  }
             </button>
-            <Slider reverse={true} min={100} max={2000} step={100} value={speed} onChange={newSpeed => setSpeed(newSpeed)}/>
+            
         </div>
-        
     )
 }
 

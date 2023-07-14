@@ -79,8 +79,7 @@ function GlobeControl() {
     
     
     return (
-        <div className="GlobeComponent row flex justify">
-            
+        <div className="GlobeComponent row">
             <h1>{latestImageDate}</h1>
             <ImageLoop imageUrls={fetchedImages}/>
         </div>
